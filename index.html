@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body>
+    <div><h1 style="color: white; text-align: center;">Internship Assignment</h1></div>
+  <button id="toggleBtn" class="toggle-btn"></button>
+  <div class="contents">
+  <div class="panel-container">
+    <div class="panel" id="panel">
+        <div>
+        <h1>CONTENTS</h1>
+    </div>
+        <a href="#home" class="link"><h3>HOME</h3></a>
+        <a href="#contact" class="link"><h3>CONTACT US</h3></a>
+        <a href="#information" class="link"><h3>INFORMATION</h3></a>
+        <a href="#guide" class="link"><h3>GUIDE</h3></a>
+    </div>
+    </div>
+    <div class="main"></div>
+    <div id="home" class="content">
+      <h1>HOME</h1>
+      <hr>
+      <div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius elit vel elit bibendum, ac consectetur dolor auctor. Integer placerat sapien eu urna viverra semper.</p>
+  <img src="./images/pexels-antonio-borriello-1297611.jpg" style="height: 300px;">
+  <p>Donec mollis ante nec metus finibus, ut laoreet tellus consequat. Aenean quis lacinia nunc. Proin condimentum, ante id tincidunt bibendum, arcu dolor tempus justo, ut luctus nisi leo vel nisl.</p>
+  <p>Etiam semper orci ut nibh congue, eget fringilla dui faucibus. Pellentesque eu lobortis neque. Sed nec magna non enim volutpat efficitur et at nulla. Quisque venenatis malesuada tortor, vel congue nisi tempor vitae.</p>
+      </div>
+    </div>
+    <div id="contact" class="content hidden">
+      <h1>Contact Us</h1>
+      <hr>
+  <form>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+    </div>
+    <div id="information" class="content hidden">
+      <h1>Information</h1>
+      <hr>
+      <p>For more information refer to the links below</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div id="guide" class="content hidden">
+      <div class="guide-section">
+        <h1>Guide Section</h1>
+        <hr>
+        <div class="guides">
+        <div class="guide-card">
+          <img src="./images/pic1.png" alt="Guide Image 1">
+          <h3>Guide Title 1</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat justo id elit aliquet, sed blandit mauris pretium.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        <div class="guide-card">
+          <img src="./images/pic2.png" alt="Guide Image 2">
+          <h3>Guide Title 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat justo id elit aliquet, sed blandit mauris pretium.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+        <div class="guide-card">
+          <img src="./images/pic3.png" alt="Guide Image 3">
+          <h3>Guide Title 3</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat justo id elit aliquet, sed blandit mauris pretium.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <footer>Created by <span style="color:pink">Mridul Gulati</span></footer>
+
+  <script>
+    var panel = document.getElementById('panel');
+    var toggleBtn = document.getElementById('toggleBtn');
+    var links = document.getElementsByClassName('link');
+    var content = document.querySelectorAll('.content');
+
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          for (var j = 0; j < content.length; j++) {
+            if (content[j] === target) {
+              content[j].classList.remove('hidden');
+            } else {
+              content[j].classList.add('hidden');
+            }
+          }
+        }
+      });
+    }
+
+    toggleBtn.addEventListener('click', function() {
+      panel.classList.toggle('active');
+      toggleBtn.classList.toggle('rev');
+    });
+  </script>
+</body>
+</html>
